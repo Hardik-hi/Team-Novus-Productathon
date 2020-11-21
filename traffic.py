@@ -22,6 +22,9 @@ t1_light='red'
 t2_light='green'
 
 def time_manager(d1,d2):
+    
+    global t1_light,t2_light
+
     if(d1>d2 and time.time()-starting_time>20 and time.time()-starting_time<60):
 
         if(t2_light=='green'):
@@ -29,7 +32,11 @@ def time_manager(d1,d2):
             print("YELLOW ON T2")
             time.sleep(6) #process of changing from yellow
 
+        if(t1_light!='green'):
+            t1_light='green'
         
-        
+        if(t2_light!='red'):
+            t2_light='red'
+
         
         
