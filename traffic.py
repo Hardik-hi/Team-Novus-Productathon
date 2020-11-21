@@ -22,7 +22,7 @@ t1_light='red'
 t2_light='green'
 
 def time_manager(d1,d2):
-    
+
     global t1_light,t2_light
 
     if(d1>d2 and time.time()-starting_time>20 and time.time()-starting_time<60):
@@ -37,6 +37,28 @@ def time_manager(d1,d2):
         
         if(t2_light!='red'):
             t2_light='red'
+        
+    #if traffic is more at t2
 
+    if(d2>d1 and time.time()-starting_time>20 and time.time()-starting_time<60):
+
+        if(t1_light=='green'):
+            print("YELLOW ON T1") #changes from yellow to red for t2 and green for t1
+            print("YELLOW ON T2")
+            time.sleep(6) #process of changing from yellow
+
+        if(t2_light!='green'):
+            t2_light='green'
+        
+        if(t1_light!='red'):
+            t1_light='red'
+
+    print("T1 IS ",t1_light)
+    print("T2 IS ",t2_light)
+
+time.sleep(21)
+time_manager(54,34)
+
+    
         
         
