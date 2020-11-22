@@ -92,7 +92,7 @@ while(cap.isOpened()):
         if counter % 6 == 0:
             avg1 = round(avg1)
             avg2 = round(avg2)
-            print("Sent:" , avg1, avg2)
+            #print("Sent:" , avg1, avg2)
             time_manager(avg1, avg2)
             avg1 = 0
             avg2 = 0
