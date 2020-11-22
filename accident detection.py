@@ -65,9 +65,7 @@ while res:
         frame = cv2.putText(frame, "Accident ", org, font, fontScale, color, thickness, cv2.LINE_AA, False)
         print("Accident")
 
-    cv2.imshow("Frame", frame)
-
-    cv2.imshow("mask", mask)
+    cv2.imshow("Control Room", frame)
 
     count += 1
 
