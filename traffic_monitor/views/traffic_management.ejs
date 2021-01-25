@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Traffic Management System</title>
+    <meta name="description" content="Figma htmlGenerator" />
+    <meta name="author" content="htmlGenerator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+
+  <body>
+    <div id="e561_4">
+      <div id="e561_5"></div>
+      <span id="e561_6">Traffic Management System </span>
+      <div id="e561_7"></div>
+      <div id="e561_8"></div>
+      <div id="e561_9"></div>
+      <div id="e561_10"></div>
+      <div id="e561_15"></div>
+      <span id="e561_17">Traffic Light 2 facing Road 2</span>
+      <div id="e561_21"></div>
+      <div id="e561_22"></div>
+      <div id="e561_23"></div>
+      <div id="e561_24"></div>
+      <div id="e561_25"></div>
+      <span id="e561_26">Traffic Light 1 facing Road 1</span>
+    </div>
+
+    <script>
+      const socket = io();
+
+      socket.on("change-color", (data) => {
+        var arr = data.split(" ");
+
+        var codeT1R = document.getElementById("e561_22");
+
+        var codeT1Y = document.getElementById("e561_23");
+
+        var codeT1G = document.getElementById("e561_24");
+
+        var codeT2R = document.getElementById("e561_8");
+
+        var codeT2Y = document.getElementById("e561_9");
+
+        var codeT2G = document.getElementById("e561_10");
+
+        var disabledColor = "#c8c8c8";
+        for (var i = 0; i < arr.length - 1; i = i + 2) {
+          var codeT1 = document.getElementById(arr[i]);
+          var codeT2 = document.getElementById(arr[i + 1]);
+
+          if (codeT1 == codeT1R) {
+            codeT1R.style.backgroundColor = "red";
+            codeT1Y.style.backgroundColor = disabledColor;
+            codeT1G.style.backgroundColor = disabledColor;
+          } else if (codeT1 == codeT1Y) {
+            codeT1Y.style.backgroundColor = "yellow";
+            codeT1R.style.backgroundColor = disabledColor;
+            codeT1G.style.backgroundColor = disabledColor;
+          } else if (codeT1 == codeT1G) {
+            codeT1G.style.backgroundColor = "green";
+            codeT1R.style.backgroundColor = disabledColor;
+            codeT1Y.style.backgroundColor = disabledColor;
+          }
+
+          if (codeT2 == codeT2R) {
+            codeT2R.style.backgroundColor = "red";
+            codeT2Y.style.backgroundColor = disabledColor;
+            codeT2G.style.backgroundColor = disabledColor;
+          } else if (codeT2 == codeT2Y) {
+            codeT2Y.style.backgroundColor = "yellow";
+            codeT2R.style.backgroundColor = disabledColor;
+            codeT2G.style.backgroundColor = disabledColor;
+          } else if (codeT2 == codeT2G) {
+            codeT2G.style.backgroundColor = "green";
+            codeT2Y.style.backgroundColor = disabledColor;
+            codeT2R.style.backgroundColor = disabledColor;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
